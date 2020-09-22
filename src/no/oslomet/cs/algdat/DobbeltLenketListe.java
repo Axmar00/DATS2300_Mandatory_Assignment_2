@@ -1,8 +1,6 @@
 package no.oslomet.cs.algdat;
 
-
 ////////////////// class DobbeltLenketListe //////////////////////////////
-
 
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
@@ -13,9 +11,11 @@ import java.util.Iterator;
 import java.util.Objects;
 import java.util.function.Predicate;
 
-
-
 public class DobbeltLenketListe<T> implements Liste<T> {
+
+    public static void main(String[] args) {
+
+    }
 
     /**
      * Node class
