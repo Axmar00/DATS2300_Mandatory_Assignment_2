@@ -13,10 +13,6 @@ import java.util.function.Predicate;
 
 public class DobbeltLenketListe<T> implements Liste<T> {
 
-    public static void main(String[] args) {
-
-    }
-
     /**
      * Node class
      * @param <T>
@@ -56,12 +52,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int antall() {
-        throw new UnsupportedOperationException();
+        return antall;
     }
 
     @Override
     public boolean tom() {
-        throw new UnsupportedOperationException();
+        if(antall == 0) return true;
+        return false;
     }
 
     @Override
