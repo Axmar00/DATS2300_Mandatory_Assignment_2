@@ -39,15 +39,31 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     private int endringer;         // antall endringer i listen
 
     public DobbeltLenketListe() {
-        throw new UnsupportedOperationException();
+        hode = hale = null;
+        antall = 0;
+        endringer = 0;
     }
 
     public DobbeltLenketListe(T[] a) {
+        this();    //Nullstiller alle variablene, ved å kalle på konstruktøren DobbeltLenketListe()
+
         Objects.requireNonNull(a, "Tabellen a er null!");
 
-        int i = 0; for(;i < a.length && a[i] == null; ++i);
+        if(a.length != 0) {
+            int i = 0;
+            for (; i < a.length && a[i] == null; ++i);
 
+            Node<T> p = hode = new Node<>(a[i], null, null);
+            antall = 1;
 
+            for (i++; i < a.length; i++) {
+                if (a[i] != null) {
+                    p = p.neste = new Node<>(a[i], p, null);
+                    antall++;
+                }
+            }
+            hale = p;
+        }
     }
 
     public Liste<T> subliste(int fra, int til){
@@ -163,6 +179,13 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     public static <T> void sorter(Liste<T> liste, Comparator<? super T> c) {
         throw new UnsupportedOperationException();
+    }
+
+    public static void main(String[] args) {
+        String[] s = null;
+        //Liste<String> liste = new DobbeltLenketListe<>(s);
+        //System.out.println(liste.antall() + " " + liste.tom());
+
     }
 
 } // class DobbeltLenketListe
