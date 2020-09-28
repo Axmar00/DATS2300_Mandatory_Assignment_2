@@ -158,7 +158,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             s.append(p.verdi);
             p = p.forrige;
 
-            for (int i = antall-1; i < 0; i--) {
+            for (int i = antall-1; i > 0; i--) {
                 if(p.verdi != null) {
                     s.append(",").append(" ").append(p.verdi);
                 }
