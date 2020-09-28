@@ -43,7 +43,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public DobbeltLenketListe(T[] a) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(a, "Tabellen a er null!");
+
+        int i = 0; for(;i < a.length && a[i] == null; ++i);
+
+
     }
 
     public Liste<T> subliste(int fra, int til){
