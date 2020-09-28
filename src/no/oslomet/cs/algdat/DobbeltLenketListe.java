@@ -132,7 +132,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         StringBuilder s = new StringBuilder();
         s.append("[");
 
-        if(!tom()) {
+        if(antall == 0) {
             Node<T> p = hode;
             s.append(p.verdi);
             p = p.neste;
@@ -150,7 +150,23 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public String omvendtString() {
-        throw new UnsupportedOperationException();
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+
+        if(antall == 0) {
+            Node<T> p = hale;
+            s.append(p.verdi);
+            p = p.forrige;
+
+            for (int i = antall-1; i < 0; i--) {
+                if(p.verdi != null) {
+                    s.append(",").append(" ").append(p.verdi);
+                }
+                p = p.forrige;
+            }
+        }
+        s.append("]");
+        return s.toString();
     }
 
     @Override
@@ -205,7 +221,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         DobbeltLenketListe<String> l2 = new DobbeltLenketListe<>(s2);
         DobbeltLenketListe<String> l3 = new DobbeltLenketListe<>(s3);
         System.out.println(l1.toString() + " " + l2.toString()
-                + " " + l3.toString());
+                + " " + l3.toString() + " " + l1.omvendtString() + " "
+                + l2.omvendtString() + " " + l3.omvendtString());
 
     }
 
