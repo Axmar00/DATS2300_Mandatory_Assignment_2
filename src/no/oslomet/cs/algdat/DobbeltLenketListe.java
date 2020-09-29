@@ -122,7 +122,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T hent(int indeks) {
-        throw new UnsupportedOperationException();
+        indeksKontroll(indeks,false);
+        return finnNode(indeks).verdi;
     }
 
     @Override
@@ -132,7 +133,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T oppdater(int indeks, T nyverdi) {
-        throw new UnsupportedOperationException();
+        Objects.requireNonNull(nyverdi,"Nullverdier ikke tillatt");
+        indeksKontroll(indeks,false);
+
+        Node<T> gammelNode = finnNode(indeks);   //Finner noden med gitt indeks
+        T gammelVerdi = gammelNode.verdi;        //Lagrer gamle nodens verdi
+        gammelNode.verdi = nyverdi;              //Oppdaterer gammel verdi med nyVerdi
+        endringer++;                             //En endring har blitt gjort
+        return gammelVerdi;                      //Returnerer gammel verdi
     }
 
     @Override
