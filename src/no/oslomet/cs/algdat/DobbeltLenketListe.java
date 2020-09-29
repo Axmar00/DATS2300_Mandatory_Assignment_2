@@ -134,7 +134,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         else{
             p = hale;
-            for(int i = 0; i < indeks; i++){
+            for(int i = antall-1; i > indeks; i--){
                 p = p.forrige;
             }
         }
@@ -264,10 +264,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public static void main(String[] args) {
-
-        Character[] c = {'A','B','C','D','E','F','G','H','I','J',};
-        DobbeltLenketListe<Character> liste = new DobbeltLenketListe<>(c);
-        System.out.println(liste.subliste(3,8)); // [D, E, F, G, H]
 
 
     }
