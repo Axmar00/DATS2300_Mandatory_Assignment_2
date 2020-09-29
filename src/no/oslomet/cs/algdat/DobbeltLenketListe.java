@@ -153,7 +153,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         Node<T> p = hode;
         for(int i = 0; i < antall; i++){     //Kjører gjennom nodene
-            if(verdi == p.verdi) return i;   //Sjekker om node-verdien er lik verdi, returnerer indeksen
+            if(verdi.equals(p.verdi)) return i;   //Sjekker om node-verdien er lik verdi, returnerer indeksen
             p = p.neste;                     //Går til neste node
         }
         return -1;                           //Hvis verdi ikke ble funnet
