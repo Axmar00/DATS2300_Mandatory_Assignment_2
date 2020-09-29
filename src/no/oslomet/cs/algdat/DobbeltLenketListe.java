@@ -104,6 +104,10 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         throw new UnsupportedOperationException();
     }
 
+    private Node<T> finnNode(int indeks){
+
+    }
+
     @Override
     public T hent(int indeks) {
         throw new UnsupportedOperationException();
