@@ -117,7 +117,20 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public void leggInn(int indeks, T verdi) {
-        
+        Objects.requireNonNull(verdi, "Ikke tillatt med nullverdier!");
+        indeksKontroll(indeks,true);     //Lov med indeks = antall
+
+        if(indeks == 0){                              //Verdien skal plasseres først
+            hode = new Node<>(verdi,null,hode);
+            if(antall == 0) hale = hode;               //Hvis tabellen er tom, hade og hode peker til samme node
+        }
+        else if(indeks == antall){                    //Verdien skal plasseres bakerst
+            hale = hale.neste = new Node<>(verdi,hale,null);
+        }
+        else{
+            
+
+        }
     }
 
     @Override
