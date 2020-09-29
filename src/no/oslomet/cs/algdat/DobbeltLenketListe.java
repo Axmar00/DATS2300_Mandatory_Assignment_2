@@ -124,13 +124,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             hode = new Node<>(verdi,null,hode);
             if(antall == 0) hale = hode;               //Hvis tabellen er tom, hade og hode peker til samme node
         }
-        else if(indeks == antall){                    //Verdien skal plasseres bakerst
-            hale = hale.neste = new Node<>(verdi,hale,null);
+        else if(indeks == antall){
+            hale = hale.neste = new Node<>(verdi,hale,null);  //Verdien skal plasseres bakerst
         }
         else{
-            
-
+            Node<T> p = hode;
+            for(int i = 1; i < indeks; i++){       //Går gjennom listen, til vi kommer til node indeks-1
+                p = p.neste;
+            }
+            p.neste = new Node<>(verdi,p,p.neste);   //Setter inn ny node, med forrige = p og neste = p.neste
         }
+        endringer++;   //En endring har blitt gjort
+        antall++;      //Lagt til en ny verdi -> øker antall
     }
 
     @Override
