@@ -87,7 +87,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
        Objects.requireNonNull(verdi,"Ikke tillatt med nullverdier!");
 
        if(antall == 0) hode = hale = new Node<>(verdi,null,null);  //tom liste -> hode og hale = nye noden
-       else hale = new Node<>(verdi,hale,null);             //ikke tom -> legges bakerst
+       else hale = hale.neste = new Node<>(verdi,hale,null);             //ikke tom -> legges bakerst
 
        antall++;          //Ny verdi i listen -> antallet har økt
        endringer++;       //Endring har blitt gjort
