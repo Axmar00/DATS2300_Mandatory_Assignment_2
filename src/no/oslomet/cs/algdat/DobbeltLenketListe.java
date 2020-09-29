@@ -68,11 +68,11 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til){
-        fratilKontroll(antall,fra,til);
+        fratilKontroll(antall,fra,til);          //Sjekker indeksen
 
         Liste<T> list = new DobbeltLenketListe<>();
         for(int i = fra; i < til; i++){
-            list.leggInn(finnNode(i).verdi);
+            list.leggInn(finnNode(i).verdi);         //Legger inn verdiene <fra:til) i listen
         }
         return list;
     }
@@ -149,7 +149,14 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public int indeksTil(T verdi) {
-        
+        if(verdi == null) return -1;  //Hvis verdi er null
+
+        Node<T> p = hode;
+        for(int i = 0; i < antall; i++){     //Kjører gjennom nodene
+            if(verdi == p.verdi) return i;   //Sjekker om node-verdien er lik verdi, returnerer indeksen
+            p = p.neste;                     //Går til neste node
+        }
+        return -1;                           //Hvis verdi ikke ble funnet
     }
 
     @Override
