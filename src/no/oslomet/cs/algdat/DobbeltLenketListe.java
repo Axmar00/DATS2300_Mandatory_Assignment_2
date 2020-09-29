@@ -120,19 +120,19 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         Objects.requireNonNull(verdi, "Ikke tillatt med nullverdier!");
         indeksKontroll(indeks,true);     //Lov med indeks = antall
 
-        if(indeks == 0){                              //Verdien skal plasseres først
-            hode = new Node<>(verdi,null,hode);
-            if(antall == 0) hale = hode;               //Hvis tabellen er tom, hade og hode peker til samme node
+        if(antall == 0){                             //Hvis tabellen er tom
+            hode = hale = new Node<>(verdi,null,null);
+        }
+
+        else if(indeks == 0){                              //Verdien skal plasseres først
+            hode = hode.forrige = new Node<>(verdi,null,hode);
         }
         else if(indeks == antall){
             hale = hale.neste = new Node<>(verdi,hale,null);  //Verdien skal plasseres bakerst
         }
         else{
-            Node<T> p = hode;
-            for(int i = 1; i < indeks; i++){       //Går gjennom listen, til vi kommer til node indeks-1
-                p = p.neste;
-            }
-            p.neste = new Node<>(verdi,p,p.neste);   //Setter inn ny node, med forrige = p og neste = p.neste
+            Node<T> p = finnNode(indeks);
+            p.forrige = new Node<>(verdi,p.forrige,p);
         }
         endringer++;   //En endring har blitt gjort
         antall++;      //Lagt til en ny verdi -> øker antall
@@ -289,7 +289,6 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public static void main(String[] args) {
-
 
     }
 
