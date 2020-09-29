@@ -145,9 +145,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             p = p.neste;
 
             for (int i = 1; i < antall; i++) {
-                if(p.verdi != null) {
-                    s.append(",").append(" ").append(p.verdi);
-                }
+                s.append(",").append(" ").append(p.verdi);
                 p = p.neste;
             }
         }
@@ -166,9 +164,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
             p = p.forrige;
 
             for (int i = antall-1; i > 0; i--) {
-                if(p.verdi != null) {
-                    s.append(",").append(" ").append(p.verdi);
-                }
+                s.append(",").append(" ").append(p.verdi);
                 p = p.forrige;
             }
         }
@@ -223,13 +219,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public static void main(String[] args) {
-        DobbeltLenketListe<Integer> liste = new DobbeltLenketListe<>();
-        System.out.println(liste.toString() + " " + liste.omvendtString());
-        for (int i = 1; i <= 3; i++)
-        {
-            liste.leggInn(i);
-            System.out.println(liste.toString() + " " + liste.omvendtString());
-        }
+
     }
 
 } // class DobbeltLenketListe
