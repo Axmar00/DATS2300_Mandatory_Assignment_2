@@ -130,9 +130,9 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         else if(indeks == antall){
             hale = hale.neste = new Node<>(verdi,hale,null);  //Verdien skal plasseres bakerst
         }
-        else{
-            Node<T> p = finnNode(indeks);
-            p.forrige = new Node<>(verdi,p.forrige,p);
+        else{                                                      //Verdien legges mellom to noder
+            Node<T> p = finnNode(indeks);                          //Verdien skal på venstre side av p
+            p.forrige = p.forrige.neste = new Node<>(verdi,p.forrige,p); 
         }
         endringer++;   //En endring har blitt gjort
         antall++;      //Lagt til en ny verdi -> øker antall
