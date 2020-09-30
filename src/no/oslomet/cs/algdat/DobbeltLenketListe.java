@@ -199,7 +199,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         indeksKontroll(indeks,false);
 
         T temp;        //Hjelpevariabel, som skal returneres tilslutt
-//1
+
         if(indeks == 0){               //Hvis første verdi skal fjernes
             temp = hode.verdi;
             hode.neste.forrige = null;
@@ -208,7 +208,18 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
 
         else if(indeks == antall){
-
+            temp = hale.verdi;
+            hale.forrige.neste = null;
+            hale = hale.forrige;
+            if(antall == 1) hode = null;
+        } // 1 2 3 4 5
+        else{
+            Node<T> p = finnNode(indeks);
+            temp = p.verdi;
+            Node<T> o = p.neste;
+            Node<T> q = p.forrige;
+            o.forrige = q;
+            q.neste = o;
         }
         antall--;
         endringer++;
