@@ -191,7 +191,28 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException();
+        if(verdi == null) return false;
+
+        Node<T> p = hode, q = null;
+        if(inneholder(verdi)){
+            while(!p.verdi.equals(verdi)){
+                q = p; p = p.neste;
+            }
+
+            if(p == hode){                   //Hvis hode fjernes
+                hode = hode.neste;
+            }
+            else{                            //Hvis andre verdier enn hode fjernes
+                q.neste = p.neste;
+                if(p != hale) p.neste.forrige = q;   //Hvis halen fjernes
+            }
+            if(p == hale) hale = q;          //Hvis tabellen blir tom etter fjerning
+
+            antall--;
+            endringer++;
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -202,18 +223,17 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if(indeks == 0){               //Hvis første verdi skal fjernes
             temp = hode.verdi;
-            hode.neste.forrige = null;
             hode = hode.neste;
             if(antall == 1) hale = null; //Hvis det kun var en verdi i tabellen
         }
 
-        else if(indeks == antall){
+        else if(indeks == antall-1){    //Hvis siste verdi skal fjernes
             temp = hale.verdi;
             hale.forrige.neste = null;
             hale = hale.forrige;
             if(antall == 1) hode = null;
-        } // 1 2 3 4 5
-        else{
+        }
+        else{                             //Hvis en verdi mellom hode og hale fjernes
             Node<T> p = finnNode(indeks);
             temp = p.verdi;
             Node<T> o = p.neste;
@@ -316,6 +336,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public static void main(String[] args) {
+
 
     }
 
