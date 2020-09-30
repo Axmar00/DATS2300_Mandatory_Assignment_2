@@ -132,7 +132,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         }
         else{                                                      //Verdien legges mellom to noder
             Node<T> p = finnNode(indeks);                          //Verdien skal på venstre side av p
-            p.forrige = p.forrige.neste = new Node<>(verdi,p.forrige,p); 
+            p.forrige = p.forrige.neste = new Node<>(verdi,p.forrige,p);
         }
         endringer++;   //En endring har blitt gjort
         antall++;      //Lagt til en ny verdi -> øker antall
@@ -196,7 +196,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T fjern(int indeks) {
-        throw new UnsupportedOperationException();
+        
     }
 
     @Override
