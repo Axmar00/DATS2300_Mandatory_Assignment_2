@@ -196,7 +196,15 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public T fjern(int indeks) {
-        
+        indeksKontroll(indeks,false);
+
+        T temp;
+
+        if(indeks == 0){
+            temp = hode.verdi;
+            hode.neste.forrige = null;
+            hode = hode.neste;
+        }
     }
 
     @Override
