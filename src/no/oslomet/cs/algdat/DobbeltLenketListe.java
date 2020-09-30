@@ -198,13 +198,21 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     public T fjern(int indeks) {
         indeksKontroll(indeks,false);
 
-        T temp;
-
-        if(indeks == 0){
+        T temp;        //Hjelpevariabel, som skal returneres tilslutt
+//1
+        if(indeks == 0){               //Hvis første verdi skal fjernes
             temp = hode.verdi;
             hode.neste.forrige = null;
             hode = hode.neste;
+            if(antall == 1) hale = null; //Hvis det kun var en verdi i tabellen
         }
+
+        else if(indeks == antall){
+
+        }
+        antall--;
+        endringer++;
+        return temp;
     }
 
     @Override
