@@ -205,8 +205,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
                     }
                     if(p == hale) hale = q;          //Hvis tabellen blir tom etter fjerning
 
-                    antall--;
-                    endringer++;
+                    antall--;                        //Fjerner en verdi -> antallet blir mindre
+                    endringer++;                     //Gjort en endring
                     return true;
                 }
                 q = p; p = p.neste;
@@ -290,7 +290,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public Iterator<T> iterator() {
-        throw new UnsupportedOperationException();
+        return new DobbeltLenketListeIterator();
     }
 
     public Iterator<T> iterator(int indeks) {
@@ -320,7 +320,16 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         @Override
         public T next(){
-            throw new UnsupportedOperationException();
+            if(iteratorendringer != endringer){
+                throw new ConcurrentModificationException("Iteratorendringer er ikke lik endringer");
+            }
+            if(!hasNext()) throw new NoSuchElementException("Ikke flere verdier");
+
+            fjernOK = true;                 //Nå kan en verdi fjernes
+            T denneVerdi = denne.verdi;     //Verdien som skal returneres
+            denne = denne.neste;            //Denne-noden flyttes til neste
+
+            return denneVerdi;              //Returnerer verdien til denne
         }
 
         @Override
