@@ -23,6 +23,11 @@ I oppgaven har jeg hatt følgende arbeidsfordeling:
 
 # Beskrivelse av oppgaveløsning (maks 5 linjer per oppgave)
 
-* Oppgave 1: Løste ved å implementere..
-* Oppgave 2: ...
+* Oppgave 1: Løste int antall() ved å returnere antall attributten. Sjekket boolean tom() ved å sjekke om antall = 0. Konstruktøren nullstiller alle variabler, sjekker om tabellen er tom og setter inn verdiene fra tabellen med løkker.
+* Oppgave 2: Implementerte toString() ved å loope gjennom alle nodene fra hode til hale og appendet hver node.verdi i StringBuilderen. Fra hale til hode i omvendtString. leggInn(T verdi) sjekket først om listen er tom, for å  se legge inn ny node med verdi.
+* Oppgave 3: 
+* Oppgave 4: Implementerte indeksTil(T verdi) ved å loope gjennom alle nodene og så returnere posisjonen til node med T verdi.
+* Oppgave 5: Implementerte ved å kjøre 4 if tests, som først sjekker om tabellen er tom, og så sjekker om T verdi skal plasseres, først, sist eller mellom to noder.
+* Oppgave 6: fjern(int indeks) ble implementert bare ved å sjekke hvilken posisjon indeksen hadde: først, sist eller mellom. For å så fjerne noden med gitt indeks og oppdaterte pekerne neste og forrige. Fjern(T verdi) bruker samme konsept, men finner i stedet hvor verdien er lik noden, for å se fjerne noden utifra hvor den er plassert.
+* Oppgave 8:
 

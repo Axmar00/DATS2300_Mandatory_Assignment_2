@@ -127,8 +127,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         else if(indeks == 0){                              //Verdien skal plasseres først
             hode = hode.forrige = new Node<>(verdi,null,hode);
         }
-        else if(indeks == antall){
-            hale = hale.neste = new Node<>(verdi,hale,null);  //Verdien skal plasseres bakerst
+        else if(indeks == antall){                                  //Verdien skal plasseres bakerst
+            hale = hale.neste = new Node<>(verdi,hale,null);
         }
         else{                                                      //Verdien legges mellom to noder
             Node<T> p = finnNode(indeks);                          //Verdien skal på venstre side av p
@@ -324,7 +324,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         @Override
         public T next(){
             if(iteratorendringer != endringer){
-                throw new ConcurrentModificationException("Iteratorendringer er ikke lik endringer");
+                throw new ConcurrentModificationException("Listen har endringer");
             }
             if(!hasNext()) throw new NoSuchElementException("Ikke flere verdier");
 
