@@ -194,25 +194,24 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         if(verdi == null) return false;
 
         Node<T> p = hode, q = null;
-        if(inneholder(verdi)){
-            while(!p.verdi.equals(verdi)){
+            for(int i = 0; i < antall; i++){
+                if(verdi.equals(p.verdi)) {
+                    if(p == hode){                   //Hvis hode fjernes
+                        hode = hode.neste;
+                    }
+                    else{                            //Hvis andre verdier enn hode fjernes
+                        q.neste = p.neste;
+                        if(p != hale) p.neste.forrige = q;   //Hvis halen fjernes
+                    }
+                    if(p == hale) hale = q;          //Hvis tabellen blir tom etter fjerning
+
+                    antall--;
+                    endringer++;
+                    return true;
+                }
                 q = p; p = p.neste;
             }
-
-            if(p == hode){                   //Hvis hode fjernes
-                hode = hode.neste;
-            }
-            else{                            //Hvis andre verdier enn hode fjernes
-                q.neste = p.neste;
-                if(p != hale) p.neste.forrige = q;   //Hvis halen fjernes
-            }
-            if(p == hale) hale = q;          //Hvis tabellen blir tom etter fjerning
-
-            antall--;
-            endringer++;
-            return true;
-        }
-        return false;
+            return false;
     }
 
     @Override
