@@ -29,6 +29,6 @@ I oppgaven har jeg hatt følgende arbeidsfordeling:
 * Oppgave 4: Implementerte indeksTil(T verdi) ved å loope gjennom alle nodene og så returnere posisjonen til node med T verdi.
 * Oppgave 5: Implementerte ved å kjøre 4 if tests, som først sjekker om tabellen er tom, og så sjekker om T verdi skal plasseres, først, sist eller mellom to noder.
 * Oppgave 6: fjern(int indeks) ble implementert bare ved å sjekke hvilken posisjon indeksen hadde: først, sist eller mellom. For å så fjerne noden med gitt indeks og oppdaterte pekerne neste og forrige. Fjern(T verdi) bruker samme konsept, men finner i stedet hvor verdien er lik noden, for å se fjerne noden utifra hvor den er plassert.
-* Oppgave 7:
+* Oppgave 7: Måte 1 ble implementert ved å nulle ut en node p, og en node q som blir satt p.neste før vi nuller ut alle pekerne og verdiene til p. Ble kjørt helt til vi kom til siste node, og nullet ut hode og hale. Måte 2 brukte en while-loop så lenge antallet ikke er lik null, og fjernet node for node ved hjelp av fjern(int indeks).
 * Oppgave 8:
 
