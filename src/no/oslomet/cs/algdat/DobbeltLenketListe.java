@@ -264,7 +264,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public void nullstill2(){
-        while(!tom()){
+        while(antall != 0){
             fjern(0);
         }
     }
