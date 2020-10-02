@@ -1092,6 +1092,7 @@ class DobbeltLenketListeTest {
         i = liste.iterator();
         liste.nullstill();  // nullstiller etter at iteratoren er opprettet
 
+
         try {
             i.next();
             antallFeil++;
