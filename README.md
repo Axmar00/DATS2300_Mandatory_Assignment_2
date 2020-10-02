@@ -19,7 +19,7 @@ Oppgaven er levert av følgende student:
 Jeg har brukt git til å dokumentere arbeidet mitt. Jeg har 16 commits totalt, og hver logg-melding beskriver det jeg har gjort av endringer.
 
 I oppgaven har jeg hatt følgende arbeidsfordeling:
-* Jeg(Asmar) har hatt hovedansvar for oppgave 1, 2, 3, 4, 5, 6 og 8. 
+* Jeg(Asmar) har hatt hovedansvar for oppgave 1, 2, 3, 4, 5, 6, 7 og 8. 
 
 # Beskrivelse av oppgaveløsning (maks 5 linjer per oppgave)
 
@@ -29,5 +29,6 @@ I oppgaven har jeg hatt følgende arbeidsfordeling:
 * Oppgave 4: Implementerte indeksTil(T verdi) ved å loope gjennom alle nodene og så returnere posisjonen til node med T verdi.
 * Oppgave 5: Implementerte ved å kjøre 4 if tests, som først sjekker om tabellen er tom, og så sjekker om T verdi skal plasseres, først, sist eller mellom to noder.
 * Oppgave 6: fjern(int indeks) ble implementert bare ved å sjekke hvilken posisjon indeksen hadde: først, sist eller mellom. For å så fjerne noden med gitt indeks og oppdaterte pekerne neste og forrige. Fjern(T verdi) bruker samme konsept, men finner i stedet hvor verdien er lik noden, for å se fjerne noden utifra hvor den er plassert.
+* Oppgave 7:
 * Oppgave 8:
 
