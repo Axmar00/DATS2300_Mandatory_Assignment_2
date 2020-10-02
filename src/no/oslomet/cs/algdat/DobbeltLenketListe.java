@@ -263,6 +263,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         endringer++;
     }
 
+    public void nullstill2(){
+        while(!tom()){
+            fjern(0);
+        }
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder();
