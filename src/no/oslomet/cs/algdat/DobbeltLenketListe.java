@@ -68,7 +68,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     public Liste<T> subliste(int fra, int til){
-        fratilKontroll(antall,fra,til);          //Sjekker indeksen
+        fratilKontroll(antall,fra,til);          //Sjekker intervallet
 
         Liste<T> list = new DobbeltLenketListe<>();
         for(int i = fra; i < til; i++){
@@ -145,12 +145,12 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     private Node<T> finnNode(int indeks){
         Node<T> p = hode;
-        if(indeks < antall/2){
+        if(indeks < antall/2){      //Leter fra hode til indeks
             for(int i = 0; i < indeks; i++){
                 p = p.neste;
             }
         }
-        else{
+        else{                        //Leter fra hale til indeks
             p = hale;
             for(int i = antall-1; i > indeks; i--){
                 p = p.forrige;
@@ -246,7 +246,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     }
 
     @Override
-    public void nullstill() {
+    public void nullstill() {   //Måte 1
         Node<T> p = hode;
         Node<T> q = null;
 
@@ -263,8 +263,8 @@ public class DobbeltLenketListe<T> implements Liste<T> {
         endringer++;
     }
 
-    public void nullstill2(){
-        while(antall != 0) fjern(0);
+    public void nullstill2(){   //Måte 2
+        while(antall != 0) fjern(0);  //Kjører fjern på 0'te indeks, helt til antall = 0
     }
 
     @Override
