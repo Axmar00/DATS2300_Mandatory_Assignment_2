@@ -222,6 +222,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
         if(indeks == 0){               //Hvis første verdi skal fjernes
             temp = hode.verdi;
+            hode.forrige = null;
             hode = hode.neste;
             if(antall == 1) hale = null; //Hvis det kun var en verdi i tabellen
         }
