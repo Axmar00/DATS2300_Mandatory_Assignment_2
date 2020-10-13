@@ -5,11 +5,10 @@ package no.oslomet.cs.algdat;
 import java.util.Comparator;
 import java.util.ConcurrentModificationException;
 import java.util.NoSuchElementException;
-import java.util.StringJoiner;
 
 import java.util.Iterator;
 import java.util.Objects;
-import java.util.function.Predicate;
+
 
 public class DobbeltLenketListe<T> implements Liste<T> {
 
@@ -99,8 +98,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
 
     @Override
     public boolean tom() {
-        if(antall == 0) return true;
-        return false;
+        return antall == 0;
     }
 
     @Override
@@ -320,7 +318,7 @@ public class DobbeltLenketListe<T> implements Liste<T> {
     {
         private Node<T> denne;
         private boolean fjernOK;
-        private int iteratorendringer;
+        private final int iteratorendringer;
 
         private DobbeltLenketListeIterator(){
             denne = hode;     // p starter på den første i listen
